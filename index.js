@@ -48,25 +48,35 @@ async function playSong(song) {
 
     if (song.type === "search") {
       textChannel.send(`検索中: ${song.searchText}`);
-      const res = await play.search(song.searchText, { limit: 1 });
-      if (!res.length) throw new Error("見つからない");
+
+      const res = await play.search(song.searchText, {
+        limit: 1,
+        source: { youtube: "video" },
+      });
+
+      if (!res.length) throw new Error("YouTubeで見つかりませんでした");
       video = res[0];
     } else {
       video = song;
     }
 
-    const stream = await play.stream(video.url);
+    console.log("再生URL:", video.url);
+
+    const stream = await play.stream(video.url, {
+      quality: 2,
+    });
 
     const resource = createAudioResource(stream.stream, {
       inputType: stream.type,
     });
 
-    currentSong = video.title;
+    currentSong = video.title || song.title || song.searchText;
     player.play(resource);
 
-    textChannel.send(`再生中: ${video.title}`);
-  } catch {
-    textChannel.send("再生失敗→次");
+    textChannel.send(`再生中: ${currentSong}`);
+  } catch (error) {
+    console.error("再生エラー詳細:", error);
+    textChannel.send(`再生失敗: ${error.message || "不明なエラー"}`);
     playNext();
   }
 }

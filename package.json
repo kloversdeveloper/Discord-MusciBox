@@ -10,6 +10,7 @@
     "node": "20.x"
   },
   "dependencies": {
+    "@discordjs/opus": "latest",
     "@discordjs/voice": "latest",
     "discord.js": "latest",
     "dotenv": "latest",
