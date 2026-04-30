@@ -10,11 +10,10 @@
     "node": "22.x"
   },
   "dependencies": {
-    "@discordjs/opus": "latest",
     "@discordjs/voice": "latest",
     "discord.js": "latest",
     "dotenv": "latest",
-    "ffmpeg-static": "latest",
-    "play-dl": "latest"
+    "youtube-dl-exec": "latest",
+    "yt-search": "latest"
   }
 }
