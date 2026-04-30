@@ -14,7 +14,6 @@
     "discord.js": "latest",
     "dotenv": "latest",
     "ffmpeg-static": "latest",
-    "youtube-dl-exec": "latest",
-    "yt-search": "latest"
+    "play-dl": "latest"
   }
 }
