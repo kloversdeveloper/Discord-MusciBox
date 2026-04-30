@@ -1,0 +1,20 @@
+{
+  "name": "discord-music-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "20.x"
+  },
+  "dependencies": {
+    "@discordjs/voice": "latest",
+    "discord.js": "latest",
+    "dotenv": "latest",
+    "ffmpeg-static": "latest",
+    "youtube-dl-exec": "latest",
+    "yt-search": "latest"
+  }
+}
